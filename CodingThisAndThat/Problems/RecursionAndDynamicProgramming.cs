@@ -12,6 +12,7 @@ namespace Problems
         /// A robot sitting on the upper left corner of an X by Y grid. The robot can only
         /// move in X and Y directions: right and down. This method calculates the number of 
         /// possible paths the robot can go from (0,0) to (X,Y).
+        /// This method only works for x+y < 13. 
         /// </summary>
         public static int CalculatePossiblePathsForRobot(int x, int y)
         { 
