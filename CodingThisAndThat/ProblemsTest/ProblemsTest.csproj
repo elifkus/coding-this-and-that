@@ -53,6 +53,7 @@
     <Compile Include="ArraysAndStringsTest.cs" />
     <Compile Include="QuestionChooserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecursionAndDynamicProgrammingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Problems\Problems.csproj">
