@@ -27,6 +27,15 @@ namespace Problems
             return allPaths;
         }
 
+        public static int CalculatePossiblePathsForRobotWithObstacles(int x, int y, int numberOfObstacles)
+        {
+            int allPaths = CalculatePossiblePathsForRobot(x, y);
+
+            //TODO: Implement
+
+            return allPaths;
+        }
+
         private static int Factorial(int number)
         {
             if (number == 0 || number == 1)
