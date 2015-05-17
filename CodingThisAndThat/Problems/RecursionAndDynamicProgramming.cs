@@ -20,8 +20,8 @@ namespace Problems
             int allPaths = Factorial(x + y);
 
             //There are only two types of movements.
-            allPaths = allPaths / x;
-            allPaths = allPaths / y;
+            allPaths = allPaths / Factorial(x);
+            allPaths = allPaths / Factorial(y);
 
             return allPaths;
         }

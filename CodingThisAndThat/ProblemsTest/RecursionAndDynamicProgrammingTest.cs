@@ -11,7 +11,7 @@ namespace ProblemsTest
         public void TestCalculatePossiblePathsForRobot()
         {
             int actual = RecursionAndDynamicProgramming.CalculatePossiblePathsForRobot(4, 4);
-            Assert.AreEqual(2520, actual);
+            Assert.AreEqual(2520, 70);
         }
     }
 }
