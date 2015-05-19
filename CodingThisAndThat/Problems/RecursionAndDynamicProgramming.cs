@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,14 +28,53 @@ namespace Problems
             return allPaths;
         }
 
-        public static int CalculatePossiblePathsForRobotWithObstacles(int x, int y, int numberOfObstacles)
+        public static List<Tuple<int,int>> CalculateOnePathForBoardWithObstacles(Board board)
         {
-            int allPaths = CalculatePossiblePathsForRobot(x, y);
+            List<Tuple<int, int>> path = new List<Tuple<int, int>>();
 
-            //TODO: Implement
+            Tuple<int, int> current = new Tuple<int, int>(0,0);
+            path.Add(current);
 
-            return allPaths;
+            while(current.Item1 != board.X || current.Item2 != board.Y)
+            {
+                current = CalculateNextTile(current.Item1, current.Item2, board);
+
+                if (current != null)
+                {
+                    path.Add(current);
+                }
+                else
+                {
+                    throw new Exception("Path does not exist");
+                }
+            }
+
+            return path;
         }
+
+        private static Tuple<int,int> CalculateNextTile(int x, int y, Board board)
+        {
+            if(x == board.X && y == board.Y)
+            {
+                return new Tuple<int,int>(x,y);
+            }
+            else
+            {
+                if (x < board.X && board.IsTileAccessible(x+1, y))
+                {
+                    return new Tuple<int, int>(x+1, y);
+                    
+                }
+                else if (y<board.Y && board.IsTileAccessible(x,y+1))
+                {
+                    return new Tuple<int, int>(x, y + 1);
+                }
+            }
+
+            return null;
+        }
+
+        
 
         private static int Factorial(int number)
         {
@@ -46,6 +86,38 @@ namespace Problems
             {
                 return number * Factorial(number - 1);
             }
+        }
+    }
+
+    public class Board
+    {
+        public int x;
+        public int X
+        {
+            get { return x; }
+        }
+        private int y;
+        public int Y
+        {
+            get { return y; }
+        }
+        private bool[,] obstacleExists;
+
+        public Board(int x, int y, bool[,] obstacles)
+        {
+            this.x = x - 1;
+            this.y = y - 1;
+            this.obstacleExists = obstacles;
+        }
+
+        public bool IsTileAccessible(int x, int y)
+        {
+            if (x > this.x || y > this.y)
+            {
+                throw new ArgumentOutOfRangeException("The tile is out of the board");
+            }
+
+            return !obstacleExists[x, y];
         }
     }
 }
