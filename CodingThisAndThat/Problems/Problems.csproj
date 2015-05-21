@@ -43,6 +43,7 @@
     <Compile Include="QuestionChooser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecursionAndDynamicProgramming.cs" />
+    <Compile Include="StacksAndQueues.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
